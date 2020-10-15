@@ -1,0 +1,18 @@
+/* **********************
+ * Limpiar pantalla independientemente del SO
+ * 
+ * AAC Octubre 2020
+ * 
+ * **********************/
+
+#ifdef _WIN32
+  #include<windows.h>
+#endif  
+
+void limpiar_pantalla(void){
+  #ifdef _WIN32
+    system("cls");
+  #else
+    system("clear");
+  #endif
+}
