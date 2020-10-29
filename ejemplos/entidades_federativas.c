@@ -55,6 +55,10 @@ entidad aux, estado[32] =
         32, "Zacatecas", 75416
 	};
 
+void menu();
+void unico();
+void descendente();
+void ascendente();
 
 int main(int argc, char const *argv[])
 {
@@ -62,3 +66,34 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
+void menu()
+{
+	printf( "\n\n---------------------------------\n");    
+	printf( "\n Entidades federativas de M%cxico \n", 130 );    
+	printf( "\n---------------------------------\n");    
+	printf( "\n\n1) Ver una entidad \n" );    
+	printf( "2) Listar en orden ascendente (superficie)  \n" );    
+	printf( "3) Listar en orden descendente (superficie)  \n" );   
+    printf( "4) Listar en orden ascendente (nombre)  \n" );    
+	printf( "5) Listar en orden descendente (nombre)  \n" );   
+	printf( "9) Salir \n\n" );    
+	printf( "Elige una opci%cn:\n", 162 ); 
+}
+
+
+void unico()
+{
+
+}
+
+
+void descendente()
+{
+
+}
+
+
+void ascendente()
+{
+
+}
