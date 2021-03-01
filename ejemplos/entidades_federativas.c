@@ -55,45 +55,102 @@ entidad aux, estado[32] =
         32, "Zacatecas", 75416
 	};
 
+
 void menu();
-void unico();
-void descendente();
-void ascendente();
+void mostrarUnica(int);
+void ordenarDescendente();
+void ordenarAscendente();
+int verificarInt();
+
 
 int main(int argc, char const *argv[])
 {
+    int option, id_entidad;
+    do
+    {
+        menu();
+        scanf("%d",&option);
+        switch (option)
+        {
+        case 1:
+            id_entidad = verificarInt();
+            mostrarUnica(id_entidad);
+            break;
+
+        case 2:
+            /* code */
+            break;
+
+        case 3:
+            /* code */
+            break;
+
+        case 4:
+            /* code */
+            break;
+
+        case 5:
+            /* code */
+            break;
+
+        case 9: printf("\n\tsee you\n");	break;
+        default: printf( "La opci%cn no es valida\n", 162);
+        }
+    } while (option!=9);
+    
 
     return 0;
 }
 
 void menu()
 {
-	printf( "\n\n---------------------------------\n");    
-	printf( "\n Entidades federativas de M%cxico \n", 130 );    
-	printf( "\n---------------------------------\n");    
-	printf( "\n\n1) Ver una entidad \n" );    
-	printf( "2) Listar en orden ascendente (superficie)  \n" );    
-	printf( "3) Listar en orden descendente (superficie)  \n" );   
-    printf( "4) Listar en orden ascendente (nombre)  \n" );    
-	printf( "5) Listar en orden descendente (nombre)  \n" );   
+	printf( "\n\n\t==================================================\n");    
+	printf( "\n\t\t Entidades federativas de M%cxico \n", 130 );    
+	printf( "\n\t==================================================\n");    
+	printf( "\n\t1) Ver una entidad \n\t" );    
+	printf( "2) Listar en orden ascendente (superficie)  \n\t" );    
+	printf( "3) Listar en orden descendente (superficie)  \n\t" );   
+    printf( "4) Listar en orden ascendente (nombre)  \n\t" );    
+	printf( "5) Listar en orden descendente (nombre)  \n\t" );   
 	printf( "9) Salir \n\n" );    
-	printf( "Elige una opci%cn:\n", 162 ); 
+	printf( "\t\tElige una opci%cn: ", 162 ); 
 }
 
 
-void unico()
+void mostrarUnica(int n)
+{
+    printf( "\n\t--------------------------------------------------\n");
+    printf("\tID\tSuperficie en Km2\tNombre del estado\n");
+	printf("\t%i.-\t %i\t\t\t %s",estado[n].codigo_entidad, estado[n].superficie, estado[n].nombre);
+    printf( "\n\t--------------------------------------------------\n\t");
+    system("pause");
+}
+
+
+void ordenarDescendente()
 {
 
 }
 
 
-void descendente()
+void ordenarAscendente()
 {
 
 }
 
-
-void ascendente()
+int verificarInt()
 {
-
+    printf( "\t\t Ingrese un n%cmero entre 1 y 32: ", 163);
+    int id;
+    do
+    {
+        scanf("%i",&id);
+        if (id<=0 || id>32)
+        {
+            printf("\t\t %cN%cmero invalido!!\n", 173, 163);
+		    printf("\t\t Vuelva a introducir un n%cmero: ", 163);
+        }
+    } while (id<=0 || id>32);
+    id--;
+    return id;
 }
