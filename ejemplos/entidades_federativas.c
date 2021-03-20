@@ -110,7 +110,7 @@ void menu()
 	printf( "\n\t1) Ver una entidad \n\t" );    
 	printf( "2) Listar en orden ascendente (superficie)  \n\t" );    
 	printf( "3) Listar en orden descendente (superficie)  \n\t" );   
-    printf( "4) Listar en orden ascendente (nombre)  \n\t" );    
+	printf( "4) Listar en orden ascendente (nombre)  \n\t" );    
 	printf( "5) Listar en orden descendente (nombre)  \n\t" );   
 	printf( "9) Salir \n\n" );    
 	printf( "\t\tElige una opci%cn: ", 162 ); 
@@ -119,11 +119,11 @@ void menu()
 
 void mostrarUnica(int n)
 {
-    printf( "\n\t--------------------------------------------------\n");
-    printf("\tID\tSuperficie en Km2\tNombre del estado\n");
+	printf( "\n\t--------------------------------------------------\n");
+	printf("\tID\tSuperficie en Km2\tNombre del estado\n");
 	printf("\t%i.-\t %i\t\t\t %s",estado[n].codigo_entidad, estado[n].superficie, estado[n].nombre);
-    printf( "\n\t--------------------------------------------------\n\t");
-    system("pause");
+	printf( "\n\t--------------------------------------------------\n\t");
+	system("pause");
 }
 
 
@@ -140,17 +140,17 @@ void ordenarAscendente()
 
 int verificarInt()
 {
-    printf( "\t\t Ingrese un n%cmero entre 1 y 32: ", 163);
-    int id;
-    do
-    {
-        scanf("%i",&id);
-        if (id<=0 || id>32)
-        {
-            printf("\t\t %cN%cmero invalido!!\n", 173, 163);
-		    printf("\t\t Vuelva a introducir un n%cmero: ", 163);
-        }
-    } while (id<=0 || id>32);
-    id--;
-    return id;
+	printf( "\t\t Ingrese un n%cmero entre 1 y 32: ", 163);
+	int id;
+	do
+	{
+		scanf("%i",&id);
+		if (id<=0 || id>32)
+		{
+			printf("\t\t %cN%cmero invalido!!\n", 173, 163);
+			printf("\t\t Vuelva a introducir un n%cmero: ", 163);
+		}
+	} while (id<=0 || id>32);
+	id--;
+	return id;
 }
