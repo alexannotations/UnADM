@@ -3,3 +3,6 @@
 
 # Compilador
 *.o
+
+# Visual Studio Code
+/.vscode
