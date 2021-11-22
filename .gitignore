@@ -8,3 +8,6 @@
 /.vscode
 /dotNET/1_U3/EA_U3/bin
 /dotNET/1_U3/EA_U3/obj
+
+# Drawio https://app.diagrams.net/
+*:Zone.Identifier
