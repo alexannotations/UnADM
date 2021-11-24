@@ -2,8 +2,8 @@
  *  Se realizaron algunos ajustes a los ejemplos
  * 
  */
-//import javax.swing.JOptionPane;
-//import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class EstructurasControl {
 
