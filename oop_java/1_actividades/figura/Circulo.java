@@ -4,7 +4,7 @@ public class Circulo extends Figura{
 
 	private float radio;
 
-    public Circulo(String nombre){
+    public Circulo(String nombre, float radio){
         super(nombre);
         this.setRadio(radio);
     }
