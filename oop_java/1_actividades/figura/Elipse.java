@@ -5,7 +5,7 @@ public class Elipse extends Figura{
     private float sjMayor;
 	private float sjMenor;
 
-	public Elipse(String nombre){
+	public Elipse(String nombre, float sjMayor, float sjMenor){
         super(nombre);
         this.setSJMayor(sjMayor);
 		this.setSJMenor(sjMenor);

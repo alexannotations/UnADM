@@ -4,7 +4,7 @@ public class Rectangulo extends Figura{
 	private float base;
 	private float altura;
 
-	public Rectangulo(String nombre){
+	public Rectangulo(String nombre, float base, float altura){
         super(nombre);
         this.setBase(base);
 		this.setAltura(altura);
