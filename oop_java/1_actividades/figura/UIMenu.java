@@ -78,22 +78,65 @@ public class UIMenu {
 		System.out.println("El lado del " + ObjCuadrado.getNombre() +" mide: " +ObjCuadrado.getLado());
 		System.out.println("El perimetro  del " + ObjCuadrado.getNombre() +" mide: " +ObjCuadrado.getPerimetro());
 		System.out.println("El area  del " + ObjCuadrado.getNombre() +" mide: " +ObjCuadrado.getArea());
-		
 	}
 	
 	
 	void doRectangle() {
+		Rectangulo ObjRectangulo = new Rectangulo("Rectangulo");
 		
+		try {
+			System.out.print("Indique cuanto mide la base: ");
+			ObjRectangulo.setBase(Float.valueOf(inputKeyBoard.nextLine()));
+			System.out.print("Indique cuanto mide la altura: ");
+			ObjRectangulo.setAltura(Float.valueOf(inputKeyBoard.nextLine()));
+		} catch (Exception e) {
+			System.out.println("Error: " +e);
+		}
+				
+		ObjRectangulo.calcularPerimetro();
+		ObjRectangulo.calcularArea();
+		System.out.println("El " + ObjRectangulo.getNombre() +" tiene de base: " +ObjRectangulo.getBase() +" y de altura: " +ObjRectangulo.getAltura());
+		System.out.println("El perimetro  del " + ObjRectangulo.getNombre() +" mide: " +ObjRectangulo.getPerimetro());
+		System.out.println("El area  del " + ObjRectangulo.getNombre() +" mide: " +ObjRectangulo.getArea());
 	}
 	
 	
 	void doCircle() {
+		Circulo ObjCirculo = new Circulo("Circulo");
+		System.out.print("Indique cuanto mide el radio: ");
 		
+		try {
+			medida =Float.valueOf(inputKeyBoard.nextLine());
+		} catch (Exception e) {
+			System.out.println("Error: " +e);
+		}
+		
+		ObjCirculo.setRadio(medida);
+		ObjCirculo.calcularPerimetro();
+		ObjCirculo.calcularArea();
+		System.out.println("El radio del " + ObjCirculo.getNombre() +" mide: " +ObjCirculo.getRadio());
+		System.out.println("El perimetro  del " + ObjCirculo.getNombre() +" mide: " +ObjCirculo.getPerimetro());
+		System.out.println("El area  del " + ObjCirculo.getNombre() +" mide: " +ObjCirculo.getArea());
 	}
 	
 	
 	void doElipse() {
+		Elipse ObjElipse = new Elipse("Elipse");
 		
+		try {
+			System.out.print("Indique cuanto mide el semi eje mayor: ");
+			ObjElipse.setSJMayor(Float.valueOf(inputKeyBoard.nextLine()));
+			System.out.print("Indique cuanto mide el semi eje menor: ");
+			ObjElipse.setSJMenor(Float.valueOf(inputKeyBoard.nextLine()));
+		} catch (Exception e) {
+			System.out.println("Error: " +e);
+		}
+				
+		ObjElipse.calcularPerimetro();
+		ObjElipse.calcularArea();
+		System.out.println("La " + ObjElipse.getNombre() +" tiene de semieje mayor: " +ObjElipse.getSJMayor() +" y de semieje menor: " +ObjElipse.getSJMenor());
+		System.out.println("El perimetro  del " + ObjElipse.getNombre() +" mide: " +ObjElipse.getPerimetro());
+		System.out.println("El area  del " + ObjElipse.getNombre() +" mide: " +ObjElipse.getArea());
 	}
 
 }
