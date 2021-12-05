@@ -1,9 +1,9 @@
-/* * * * * * 
- * Un programa que calcule porcentaje de aprobados, porcentaje de reprobados y moda de la materia Programación Orientada a Objetos I,
- * con un listado mínimo de 10 estudiantes y al finalizar debe imprimir el listado de los estudiantes indicando el nivel de desempeño 
- * de cada uno y las estadísticas generales de la materia.
- * 		- Deberás solicitar se ingrese la calificación de cada alumno.
- * 		- De acuerdo al valor obtenido en la calificación, mostrarás el desempeño del estudiante.
+/* * * * * * U2
+ * Un programa que calcule porcentaje de aprobados, porcentaje de reprobados y moda de la materia Programaciï¿½n Orientada a Objetos I,
+ * con un listado mï¿½nimo de 10 estudiantes y al finalizar debe imprimir el listado de los estudiantes indicando el nivel de desempeï¿½o 
+ * de cada uno y las estadï¿½sticas generales de la materia.
+ * 		- Deberï¿½s solicitar se ingrese la calificaciï¿½n de cada alumno.
+ * 		- De acuerdo al valor obtenido en la calificaciï¿½n, mostrarï¿½s el desempeï¿½o del estudiante.
  *  * */
 package calificaciones;
 import java.util.Scanner;
@@ -45,7 +45,7 @@ public class Inicio {
 		
 		System.out.println("\nHa terminado de guardar las calificaciones\n\n");
 		
-		System.out.println("\tNombre: " + " \tScore: " + " \tDesempeño: ");
+		System.out.println("\tNombre: " + " \tScore: " + " \tDesempeï¿½o: ");
 		for (int i = 0; i < group; i++) {
 			String studentName = student[i].getNombre();
 			int studentScore = student[i].getCalificacion();
