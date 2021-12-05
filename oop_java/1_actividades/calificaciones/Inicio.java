@@ -67,6 +67,15 @@ public class Inicio {
 		System.out.println("\n\tAprobados: " + materia.getAprobados() +"\n\tReprobados: " + materia.getReprobados());
 		materia.getPercentage();
 		
+		
+		System.out.println("\n\n");
+		Estadistica estadistica = new Estadistica(group);
+		int[] listaCalificaciones = new int[group];
+		for (int i = 0; i < group; i++) {
+			listaCalificaciones[i]=student[i].getCalificacion();
+		}
+		estadistica.calcularModa(listaCalificaciones);
+		System.out.println("\n La moda es: " + estadistica.getModa());
 
 	}
 
