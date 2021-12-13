@@ -1,3 +1,10 @@
+/* * * * * * U2
+ * Un programa que calcule porcentaje de aprobados, porcentaje de reprobados y moda de la materia Programaci�n Orientada a Objetos I,
+ * con un listado m�nimo de 10 estudiantes y al finalizar debe imprimir el listado de los estudiantes indicando el nivel de desempe�o 
+ * de cada uno y las estad�sticas generales de la materia.
+ * 		- Deber�s solicitar se ingrese la calificaci�n de cada alumno.
+ * 		- De acuerdo al valor obtenido en la calificaci�n, mostrar�s el desempe�o del estudiante.
+ *  * */
 package calificaciones;
 import java.util.Scanner;
 
@@ -10,36 +17,66 @@ public class Inicio {
 		// Un array de objetos de la clase estudiante
 		Estudiante student[] = new Estudiante[group];
 		
+		Clase materia = new Clase();
 		Scanner inputKeyBoard = new Scanner(System.in);
 		
 		for (int i = 0; i < group; i++) {
 			student[i] = new Estudiante();
-			// Se autoasigna un nombre por default
+			// Se autoasigna un nombre por default y se hace cast de int a String
 			String nombre = "Estudiante" +String.valueOf(i);
 			student[i].setNombre(nombre);
 			System.out.print("Indique la calificacion del " +student[i].getNombre() +": ");
-			
 			try {
-				student[i].setCalificacion(inputKeyBoard.nextInt());
+				int calificacion;
+				do {
+					calificacion = inputKeyBoard.nextInt();
+					if (calificacion <0 || calificacion >100) {
+						System.out.println("Introduzca un valor entre 0 y 100: ");
+					} else {
+						System.out.print(" OK ");
+					}
+				} while (calificacion <0 || calificacion >100);
+				student[i].setCalificacion(calificacion);
 			} catch (Exception e) {
 				System.out.println("Error: " +e);
 			}
-			
-			
 		}
+		
 		
 		System.out.println("\nHa terminado de guardar las calificaciones\n\n");
 		
+		System.out.println("\tNombre: " + " \tScore: " + " \tDesempe�o: ");
 		for (int i = 0; i < group; i++) {
-			System.out.println(" " +student[i].getNombre() +" - " +student[i].getCalificacion());
+			String studentName = student[i].getNombre();
+			int studentScore = student[i].getCalificacion();
+			String studentPerformance = materia.calculatePerformance(studentScore);
+			System.out.println("\t" + studentName +" \t " +studentScore + " \t\t " +studentPerformance);
 		}
 		
+			
+		int calificacionAprobatoria = 60;
 		
+		for (int i = 0; i < group; i++) {
+			if (student[i].getCalificacion()>=calificacionAprobatoria) {
+				materia.oneAprobados();
+			} else if(student[i].getCalificacion()<calificacionAprobatoria) {
+				materia.oneReprobados();
+			}
+		}
+		
+		System.out.println("\n\tAprobados: " + materia.getAprobados() +"\n\tReprobados: " + materia.getReprobados());
+		materia.getPercentage();
+		
+		
+		System.out.println("\n\n");
+		Estadistica estadistica = new Estadistica(group);
+		int[] listaCalificaciones = new int[group];
+		for (int i = 0; i < group; i++) {
+			listaCalificaciones[i]=student[i].getCalificacion();
+		}
+		estadistica.calcularModa(listaCalificaciones);
+		System.out.println("\n La moda es: " + estadistica.getModa());
 
 	}
 
-	void aprobados(){}
-	void reaprobados(){}
-	void moda(){}
-	void performance(){}
 }

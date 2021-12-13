@@ -1,3 +1,4 @@
+/* U2 */
 package figura;
 
 public class Inicio {
