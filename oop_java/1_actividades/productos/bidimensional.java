@@ -1,8 +1,8 @@
 /* * * *
  * U4 A2
- * Se solicita implementar dos arreglos; uno unidimensional tipo String, donde se guardarán los nombres de los productos desde el teclado. 
+ * Se solicita implementar dos arreglos; uno unidimensional tipo String, donde se guardarï¿½n los nombres de los productos desde el teclado. 
  * Para aplicar un arreglo multidimensional, solicitar tres precios por producto, las cuales designaremos con el nombre de precio mayoreo, 
- * precio menudeo y descuento. Al final el programa debe mostrar por separado, los datos de los nombres de productos y después, 
+ * precio menudeo y descuento. Al final el programa debe mostrar por separado, los datos de los nombres de productos y despuï¿½s, 
  * los promedios del costo por producto.
  * @author AAC
  * 
@@ -47,9 +47,10 @@ public class bidimensional {
 				
 			}
 		}
+        keyBoard.close();
 
         System.out.println("\nTabla de productos\n");
-        System.out.printf("\t%15s \t->%12.8s\t | %5.8s\t | %s\n", "Producto", "Mayoreo", "Menudeo", "Descuento");	// función de impresión con formato
+        System.out.printf("\t%15s \t->%12.8s\t | %5.8s\t | %s\n", "Producto", "Mayoreo", "Menudeo", "Descuento");	// funciï¿½n de impresiï¿½n con formato
         System.out.println("\t\t------------------------------------------------------------------");
         for (int i = 0; i < precio.length; i++) {
 			System.out.printf("\t%15s \t->%12.4s\t | %5.8s\t | %5.8s %% \n", nombreProducto[i] , precio[i][0], precio[i][1], precio[i][2]);
