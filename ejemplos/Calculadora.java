@@ -37,7 +37,9 @@ class LaminaCalculadora extends JPanel{
 
     private JPanel losBotones;  // Se declara objeto JPanel variable de ambito de clase
     private JButton pantalla;
-    private boolean principio;// Para quitar el cero del principio, se incia en false
+    private boolean principio;// Para quitar el cero del principio, se incia en false. Y capturar nuevo operando
+    private double resultado;
+    private String ultimaOperacion;
 
     public LaminaCalculadora() {
         principio = true;   // Para borrar el cero inicial
@@ -55,6 +57,7 @@ class LaminaCalculadora extends JPanel{
         JButton[] botonN = new JButton[numerosarray];   // Arreglo de objetos
         ActionListener listenerInsertar = new InsertaNumero();  // Objeto tipo Evento ActionListener, creado con
                                                          // la clase que implementa la Interface ActionListener
+        ActionListener listenerOperar = new GestionarCalculos();
         for (int i = 0; i < numerosarray; i++) {
             botonN[i] = new JButton(String.valueOf(i)); // Genera los objetos boton
             botonN[i].addActionListener(listenerInsertar);
@@ -62,17 +65,18 @@ class LaminaCalculadora extends JPanel{
         }
 
         JButton botonSuma = new JButton("+");
-        //botonSuma.addActionListener(listenerInsertar);
+        botonSuma.addActionListener(listenerOperar);
         losBotones.add(botonSuma);
         JButton botonResta = new JButton("-");
-        //botonResta.addActionListener(listenerInsertar);
+        botonResta.addActionListener(listenerOperar);
         losBotones.add(botonResta);
-        //ponerBotones("/");
-        //ponerBotones("x");
-        //ponerBotones("mod");
-        //ponerBotones("=");
+        ponerBotones("/",listenerOperar);
+        ponerBotones("*",listenerOperar);
+        ponerBotones(".",listenerInsertar);
+        ponerBotones("=",listenerOperar);
 
         add(losBotones, BorderLayout.CENTER);
+        ultimaOperacion = "=";
 
     }
 
@@ -81,6 +85,7 @@ class LaminaCalculadora extends JPanel{
         boton.addActionListener(oyente);    // Los simbolos matematicos no llevan esta instancia para que no escriban en pantalla
         losBotones.add(boton);
     }
+
 
     private class InsertaNumero implements ActionListener{
         @Override
@@ -93,7 +98,34 @@ class LaminaCalculadora extends JPanel{
             // Para que agrupe los numeros al hacer clic, recibe lo que haya anteriormente + el nuevo clic
             pantalla.setText(pantalla.getText() + entrada);
         }
-    }
+    } // ends inner class InsertaNumero -> ActionListener
+
+
+    private class GestionarCalculos implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String operacion = e.getActionCommand();    // Asigna un String que corresponde al texto del boton
+            calcular(Double.parseDouble(pantalla.getText()));   // Cast y llamada al metodo con el numero mostrado en pantalla
+            ultimaOperacion = operacion;
+            principio=true;     // Reinicia la pantalla al presionar un operador
+        }
+
+        public void calcular(Double x){
+            if (ultimaOperacion.equals("+")){
+                resultado+=x;
+            }else if(ultimaOperacion.equals("-")){
+                resultado-=x;
+            }else if(ultimaOperacion.equals("*")){
+                resultado*=x;
+            }else if(ultimaOperacion.equals("/")){
+                resultado/=x;
+            }else if(ultimaOperacion.equals("=")){
+                resultado=x;
+            }
+            pantalla.setText(String.valueOf(resultado));
+        }
+    }// ends inner class GestionarCalculos -> ActionListener
+
 } // ends LaminaCalculadora -> JPanel
 
 
